@@ -84,11 +84,22 @@ int delete_particular()
  
  else
  {  
-    printf("Enter the element which is to be deleted");
+    printf("Enter the element which is to be deleted : ");
     scanf("%d",&val);
     
-    temp=start;
-    ref=temp;
+    
+    
+    if(start->data==val) // if the first element is to be deleted
+    {   x=start->data;
+        start=NULL;
+        return x;
+        
+    }
+        
+    else
+    {
+        temp=start;
+        ref=temp;
     
     while(temp->next->data!=val)
     { 
@@ -101,6 +112,8 @@ int delete_particular()
     free(ref);
     return x;
     
+
+}
 
 }
 
@@ -122,8 +135,16 @@ struct Node*ref;
  else
  {  
      
-    printf("Enter the value before which the element is to be deleted");
+    printf("Enter the value before which the element is to be deleted : ");
     scanf("%d",&val);
+    
+    if(start->data==val)
+    { printf("This is the first element !! nothing before it to delete ...");
+    
+    }
+    
+    else
+    {
     
     temp=start;
     ref=temp;
@@ -159,6 +180,8 @@ struct Node*ref;
 
 }
 
+}
+
 
 int delete_after()
 {  
@@ -175,8 +198,9 @@ struct Node*ref;
  else
  {  
      
-    printf("Enter the value after which the element is to be deleted");
+    printf("Enter the value after which the element is to be deleted : ");
     scanf("%d",&val);
+    
     
     temp=start;
     ref=temp;
@@ -189,6 +213,14 @@ struct Node*ref;
         
     }
     
+    if(temp->next==NULL)
+    { 
+        printf("%d is the last element ! nothing after that to delete ....",val);
+    }
+    
+    else
+    {
+    
     ref=temp->next;
     temp->next=ref->next;
     x=ref->data;
@@ -197,7 +229,7 @@ struct Node*ref;
 
 }
 
-
+}
 
 }
 
