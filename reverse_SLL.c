@@ -89,7 +89,7 @@ void reverse_recursive(struct Node*start)
     { return;
     }
     
-    rev(start->next);
+    reverse_recursive(start->next);
     
     printf("%d ",start->data);
 }
