@@ -97,44 +97,53 @@ void detect_loop_method1()
 }
 
 
-
 void detect_loop_method2()
 {
-  int n=0,tempp=0;
-  struct Node*temp;
+  struct Node*temp,*ptr=NULL;
   temp=start;
-
-  start->next->next->next->next = start->next;
+  
+  start->next->next->next->next= start->next;
 
   while(temp!=NULL)
   {  // here the logic used is each node also has a flag ( while inserting always is 0) which if visited has a value 1 .So if a node is already  has flag value of 1 it indicates that theres a loop beacsue in a linked list without a loop a would be traversed only once.
 
      if(temp->flag==1)
-     {
+     { 
        printf("loop found!");
-       tempp=1;
+       ptr=temp;
        break;
      }
-     n++;
+     
      temp->flag=1;
      temp=temp->next;
 
+
+
+  
   }
-   
-   if(tempp==1)
-   { printf("Length of detected loop is : %d",n);
-            }
-   else
-            {
-               printf("No loop found!");
-               
-            }
+
+
+if(ptr==NULL)
+
+{ printf("No loop found!");}
+
+else
+{
+ 
+int count = 1; 
+
+   struct Node *p = ptr; 
+   while (p->next != ptr) 
+   {  
+      count++; 
+      p = p->next; 
+   }
+
+   printf("\n") ;
+   printf("Length of loop : %d",count);
 
 }
-
-
-
-
+}
 
 void traverse()
 {  
@@ -160,6 +169,7 @@ void traverse()
      }
  
   }
+  
 }
 
 
