@@ -17,7 +17,7 @@ void insert()
 {
     // we'll insert only four nodes so that we can make a loop and test the code  XD
     
-    // else we can also use five nodes and connect second node to fifth node using start->next->next->next->next = start->next for testing the case where the whole linked list is not a loop but only some of its nodes made a loop
+    
     
     int ele;
    
@@ -100,7 +100,7 @@ void detect_loop_method1()
 
 void detect_loop_method2()
 {
-  
+  int n=0,tempp=0;
   struct Node*temp;
   temp=start;
 
@@ -112,13 +112,23 @@ void detect_loop_method2()
      if(temp->flag==1)
      {
        printf("loop found!");
+       tempp=1;
        break;
      }
-
+     n++;
      temp->flag=1;
      temp=temp->next;
 
   }
+   
+   if(tempp==1)
+   { printf("Length of detected loop is : %d",n);
+            }
+   else
+            {
+               printf("No loop found!");
+               
+            }
 
 }
 
